@@ -11,11 +11,13 @@ class Tour(object):
         self._lstCity = []
         for city in cities:
             self._lstCity.append(city)  
-               
+    
+    # Get the total distance between the cities, default mode is driving.   
     def getDistance(self, mode="driving"):
         totalDistance = 0
         counter, nextCounter = 0,0
         
+        #loop through all the city list to get the total distance
         for counter in range(0, len(self._lstCity) - 1):
             nextCounter = counter + 1
             url = self.__googleAPI
@@ -25,6 +27,7 @@ class Tour(object):
                 response = urllib2.urlopen(url).read()
                 xmlResponse = ElementTree.fromstring(response)
 
+                #from xml read the distance value
                 distance = float(xmlResponse.find("row").find("element").find("distance").findtext("value"))
                 totalDistance += distance
 

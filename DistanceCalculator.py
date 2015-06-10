@@ -20,7 +20,7 @@ Third Tour:{2}\n""".format(firstTour, secondTour, thirdTour))
     print("\nThird tour distances:\n\tDriving: {0} km;\n\tBiking: {1} km;\n\tWalking: {2} km".format(
     round(thirdTour.getDistance("driving")/1000), round(thirdTour.getDistance('bicycling')/1000),
     round(thirdTour.getDistance('walking')/1000)))
-    
+
 def main():
     displayOption()
 
