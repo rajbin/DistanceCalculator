@@ -28,8 +28,9 @@ class Tour(object):
                 xmlResponse = ElementTree.fromstring(response)
 
                 #from xml read the distance value
-                distance = float(xmlResponse.find("row").find("element").find("distance").findtext("value"))
-                totalDistance += distance
+                distance = xmlResponse.find("row").find("element").find("distance").findtext("value")
+                if distance != "":
+                    totalDistance += float(distance)
 
             except urllib2.HTTPError, err:
                 if err.code == 404:
